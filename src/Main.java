@@ -1,8 +1,9 @@
 import Midi.MidiOperation;
+import Midi.MidiReader;
 
 public class Main {
     public static void main(String[] args){
-        try {
+        /*try {
             MidiOperation midiOperation = new MidiOperation(1);
             midiOperation.addNoteToTrack(50,1,3);
             midiOperation.addNoteToTrack(52,3,5);
@@ -16,7 +17,14 @@ public class Main {
         }
         catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
 
+        try{
+            MidiReader midiReader=new MidiReader("ResFile/Unravel.mid","OutFile/out.txt");
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

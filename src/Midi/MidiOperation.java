@@ -1,5 +1,6 @@
 package Midi;
 //http://blog.csdn.net/shao941122/article/details/46124865
+//http://blog.sina.com.cn/s/blog_6f72ff900101f95b.html
 import javax.sound.midi.*;
 
 public class MidiOperation {
@@ -10,15 +11,23 @@ public class MidiOperation {
     private int defaultTicks;  //tick - the time-stamp for the event, in MIDI ticks
 
     public MidiOperation(int instrument)throws MidiUnavailableException,InvalidMidiDataException{
-            sequencer = MidiSystem.getSequencer();
-            sequencer.open();
-            sequence=new Sequence(Sequence.PPQ,4);//24 frames per second (resolution is expressed in ticks per frame).
+        sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        /**
+         * The tempo-based timing type, for which the resolution is expressed in pulses (ticks) per quarter note.
+         * @see #Sequence(float, int)
+         */
+        sequence=new Sequence(Sequence.PPQ,4);
 
-            track=sequence.createTrack();
-            ShortMessage firstMessage=new ShortMessage();
-            firstMessage.setMessage(192,1,instrument,0);
-            MidiEvent firstEvent=new MidiEvent(firstMessage,1);
-            track.add(firstEvent);
+        track=sequence.createTrack();
+        ShortMessage firstMessage=new ShortMessage();
+        firstMessage.setMessage(192,1,instrument,0);
+        MidiEvent firstEvent=new MidiEvent(firstMessage,1);
+        track.add(firstEvent);
+    }
+
+    public MidiOperation(int instrument,int framesPerSec){
+
     }
 
     /*public void addNoteToTrack(int note)throws InvalidMidiDataException{
