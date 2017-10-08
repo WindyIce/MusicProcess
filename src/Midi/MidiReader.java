@@ -13,7 +13,7 @@ public class MidiReader {
         }
     }
 
-    public MidiReader(String src,String out)throws FileNotFoundException ,IOException{
+    public MidiReader(String src,String out)throws IOException ,IOException{
         midiFile=new File(src);
         FileInputStream fileInputStream=new FileInputStream(midiFile);
         FileOutputStream fileOutputStream=new FileOutputStream(out);
@@ -43,4 +43,10 @@ public class MidiReader {
         bufferedInputStream.close();
         return byteArrayOutputStream.toByteArray();
     }
+
+    public void sequenceAnalysis(){
+        //buffer=toByteArray();
+
+    }
+
 }

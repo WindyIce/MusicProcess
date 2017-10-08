@@ -1,6 +1,10 @@
 package TypeOperation;
 
+import org.jetbrains.annotations.NotNull;
+
 public class FromByte {
+    private static char[] hexCode={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+
     public static short getShort(byte buffer1,byte buffer2){
         short r=0;
         r|=(buffer1&0x00ff);
@@ -20,4 +24,24 @@ public class FromByte {
         r|=(buffer4&0x000000ff);
         return r;
     }
+
+    @NotNull
+    public static String toHex(byte b){
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(hexCode[(b>>>4)&0x0f]);
+        buffer.append(hexCode[b&0x0f]);
+        return buffer.toString();
+    }
+
+    @NotNull
+    public static String toHexArray(byte[] bytes){
+        StringBuffer output=new StringBuffer("");
+        for(byte a:bytes){
+            output.append(toHex(a));
+
+        }
+        return output.toString();
+    }
+
+
 }
