@@ -1,8 +1,10 @@
 package TypeOperation;
 
-import org.jetbrains.annotations.NotNull;
+
+import com.sun.istack.internal.NotNull;
 
 public class Visuallize {
+
     @NotNull
     public static String formatHexString(String hex){
         StringBuffer returnString=new StringBuffer("");

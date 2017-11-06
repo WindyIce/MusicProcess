@@ -1,6 +1,6 @@
 package TypeOperation;
 
-import org.jetbrains.annotations.NotNull;
+import com.sun.istack.internal.NotNull;
 
 public class FromByte {
     private static char[] hexCode={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};

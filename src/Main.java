@@ -1,5 +1,8 @@
+import Midi.MidiModifierSample;
 import Midi.MidiOperation;
 import Midi.MidiReader;
+import Midi.MidiReaderSample;
+import Player.BasicPlayer;
 import TypeOperation.FromByte;
 import TypeOperation.ToByte;
 import TypeOperation.Visuallize;
@@ -26,16 +29,10 @@ public class Main {
         }*/
 
         try{
-            MidiReader midiReader=new MidiReader("ResFile/Unravel.mid");
-            byte[] b=midiReader.toByteArray();
-            String out= FromByte.toHexArray(b);
-            FileWriter fileWriter=new FileWriter("OutFile/out.txt");
-            fileWriter.write(out);
-            byte[] testBytes= ToByte.hexToBytes(out);
-            String out1=FromByte.toHexArray(testBytes);
-            out1= Visuallize.formatHexString(out1);
-            FileWriter fileWriter1=new FileWriter("OutFile/out2.txt");
-            fileWriter1.write(out1);
+            //MidiReaderSample.MidiToText("ResFile/Unravel.mid","OutFile/out2.txt");
+            BasicPlayer player=new BasicPlayer("ResFile/Unravel.mid");
+            player.play();
+            //MidiModifierSample.cityInTheSky();
         }
         catch (Exception e){
             e.printStackTrace();
