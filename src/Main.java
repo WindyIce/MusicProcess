@@ -1,7 +1,4 @@
-import Midi.MidiModifierSample;
-import Midi.MidiOperation;
-import Midi.MidiReader;
-import Midi.MidiReaderSample;
+import Midi.*;
 import Player.BasicPlayer;
 import TypeOperation.FromByte;
 import TypeOperation.ToByte;
@@ -28,11 +25,14 @@ public class Main {
             e.printStackTrace();
         }*/
 
-        try{
             //MidiReaderSample.MidiToText("ResFile/Unravel.mid","OutFile/out2.txt");
-            BasicPlayer player=new BasicPlayer("ResFile/Unravel.mid");
-            player.play();
+            //BasicPlayer player=new BasicPlayer("ResFile/Unravel.mid");
+            //player.play();
             //MidiModifierSample.cityInTheSky();
+        try {
+            MidiProcessInput midiProcessInput=new MidiProcessInput("C");
+            midiProcessInput.startShow();
+
         }
         catch (Exception e){
             e.printStackTrace();

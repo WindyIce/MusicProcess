@@ -49,6 +49,31 @@ public class MidiOperation {
         track.add(noteOff);
     }
 
+    public static void playGlobal(int note,int instrument)throws MidiUnavailableException,
+            InvalidMidiDataException{
+        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        Sequence sequence=new Sequence(Sequence.PPQ,4);
+
+        Track track=sequence.createTrack();
+        ShortMessage firstMessage=new ShortMessage();
+        firstMessage.setMessage(192,1,instrument,0);
+        MidiEvent firstEvent=new MidiEvent(firstMessage,1);
+        track.add(firstEvent);
+
+        ShortMessage shortMessage=new ShortMessage();
+        shortMessage.setMessage(144, 1, note, 100);
+        MidiEvent noteOn=new MidiEvent(shortMessage,0);
+        track.add(noteOn);
+
+        ShortMessage shortMessage1=new ShortMessage();
+        shortMessage1.setMessage(128,1,note,100);
+        MidiEvent noteOff=new MidiEvent(shortMessage1,4);
+        track.add(noteOff);
+        sequencer.setSequence(sequence);
+        sequencer.start();
+    }
+
     public void savedSetting() throws InvalidMidiDataException{
             sequencer.setSequence(sequence);
     }
