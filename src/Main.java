@@ -6,6 +6,7 @@ import TypeOperation.Visuallize;
 
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args){
@@ -30,9 +31,14 @@ public class Main {
             //player.play();
             //MidiModifierSample.cityInTheSky();
         try {
-            MidiProcessInput midiProcessInput=new MidiProcessInput("C");
-            midiProcessInput.startStandardInput();
-
+            Random random=new Random();
+            int nowTick=1;
+            while(true){
+                int note=random.nextInt(127);
+                double sleepTick=random.nextDouble()*3+1;
+                MidiOperation.playGlobal(note,random.nextInt(3)+1);
+                Thread.sleep((long)((int)60*sleepTick));
+            }
         }
         catch (Exception e){
             e.printStackTrace();

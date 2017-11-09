@@ -10,6 +10,7 @@ public class MidiOperation {
     private Track track;
     private int defaultTicks;  //tick - the time-stamp for the event, in MIDI ticks
 
+
     public MidiOperation(int instrument)throws MidiUnavailableException,InvalidMidiDataException{
         sequencer = MidiSystem.getSequencer();
         sequencer.open();

@@ -11,7 +11,7 @@ public class MidiReaderSample {
 
     public static void MidiToText(String inputFile,String outputFile)throws FileNotFoundException,IOException{
         MidiReader midiReader=new MidiReader(inputFile);
-        byte[] b=midiReader.toByteArray();
+        byte[] b=midiReader.getBuffer();
         String out= FromByte.toHexArray(b);
         out= Visuallize.formatHexString(out);
         FileWriter fileWriter=new FileWriter(outputFile);
