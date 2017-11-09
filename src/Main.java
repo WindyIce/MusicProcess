@@ -31,7 +31,7 @@ public class Main {
             //MidiModifierSample.cityInTheSky();
         try {
             MidiProcessInput midiProcessInput=new MidiProcessInput("C");
-            midiProcessInput.startShow();
+            midiProcessInput.startStandardInput();
 
         }
         catch (Exception e){

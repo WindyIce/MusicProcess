@@ -53,7 +53,7 @@ public class MidiProcessInput {
     }
     public void firstToneDown(){firstToneNote-=12;}
 
-    public void startShow(){
+    public void startStandardInput(){
         char i;
         int note;
         while(true){

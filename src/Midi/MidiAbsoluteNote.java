@@ -1,128 +1,30 @@
 package Midi;
 
+import java.util.HashMap;
+
 public class MidiAbsoluteNote {
-    public int A0=21;
-    public int As0=22;
-    public int Bf0=23;
-    public int B0=23;
-    public int C1=24;
-    public int Cs1=25;
-    public int Df1=25;
-    public int D1=26;
-    public int Ds1=27;
-    public int Ef1=27;
-    public int E1=28;
-    public int F1=29;
-    public int Fs1=30;
-    public int Gf1=30;
-    public int G1=31;
-    public int Gs1=32;
-    public int Af1=32;
-    public int A1=33;
-    public int As1=34;
-    public int Bf1=34;
-    public int B1=35;
-    public int C2=36;
-    public int Cs2=37;
-    public int Df2=37;
-    public int D2=38;
-    public int Ds2=39;
-    public int Ef2=39;
-    public int E2=40;
-    public int F2=41;
-    public int Fs2=42;
-    public int Gf2=42;
-    public int G2=43;
-    public int Gs2=44;
-    public int Af2=44;
-    public int A2=45;
-    public int As2=46;
-    public int Bf2=46;
-    public int B2=47;
-    public int C3=48;
-    public int Cs3=49;
-    public int Df3=49;
-    public int D3=50;
-    public int Ds3=51;
-    public int Ef3=51;
-    public int E3=52;
-    public int F3=53;
-    public int Fs3=54;
-    public int Gf3=54;
-    public int G3=55;
-    public int Gs3=56;
-    public int Af3=56;
-    public int A3=57;
-    public int As3=58;
-    public int Bf3=58;
-    public int B3=59;
-    public int C4=60;
-    public int Cs4=61;
-    public int Df4=61;
-    public int D4=62;
-    public int Ds4=63;
-    public int Ef4=63;
-    public int E4=64;
-    public int F4=65;
-    public int Fs4=66;
-    public int Gf4=66;
-    public int G4=67;
-    public int Gs4=68;
-    public int Af4=68;
-    public int A4=69;
-    public int As4=70;
-    public int Bf4=70;
-    public int B4=71;
-    public int C5=72;
-    public int Cs5=73;
-    public int Df5=73;
-    public int D5=74;
-    public int Ds5=75;
-    public int Ef5=75;
-    public int E5=76;
-    public int F5=77;
-    public int Fs5=78;
-    public int Gf5=78;
-    public int G5=79;
-    public int Gs5=80;
-    public int Af5=80;
-    public int A5=81;
-    public int As5=82;
-    public int Bf5=82;
-    public int B5=83;
-    public int C6=84;
-    public int Cs6=85;
-    public int Df6=85;
-    public int D6=86;
-    public int Ds6=87;
-    public int Ef6=87;
-    public int E6=88;
-    public int F6=89;
-    public int Fs6=90;
-    public int Gf6=90;
-    public int G6=91;
-    public int Gs6=92;
-    public int Af6=92;
-    public int A6=93;
-    public int As6=94;
-    public int Bf6=94;
-    public int B6=95;
-    public int C7=96;
-    public int Cs7=97;
-    public int Df7=97;
-    public int D7=98;
-    public int Ds7=99;
-    public int Ef7=99;
-    public int E7=100;
-    public int F7=101;
-    public int Fs7=102;
-    public int Gf7=102;
-    public int G7=103;
-    public int Gs7=104;
-    public int Af7=104;
-    public int A7=105;
-    public int As7=106;
-    public int Bf7=106;
-    public int B7=107;
-    public int C8=108;
+    private static final HashMap<String,Short>absoluteNote=new HashMap<String,Short>(){{
+        put("A0",(short)21);put("AS0",(short)22);put("BF0",(short)22);put("B0",(short)23);
+
+        put("C1",(short)24);put("CS1",(short)25);put("DF1",(short)25);put("D1",(short)26);put("DS1",(short)27);put("EF1",(short)27);put("E1",(short)28);put("F1",(short)29);put("FS1",(short)30);put("GF1",(short)30);put("G1",(short)31);put("GS1",(short)32);put("AF1",(short)32);put("A1",(short)33);put("AS1",(short)34);put("BF1",(short)34);put("B1",(short)35);
+
+        put("C2",(short)36);put("CS2",(short)37);put("DF2",(short)37);put("D2",(short)38);put("DS2",(short)39);put("EF2",(short)39);put("E2",(short)40);put("F2",(short)41);put("FS2",(short)42);put("GF2",(short)42);put("G2",(short)43);put("GS2",(short)44);put("AF2",(short)44);put("A2",(short)45);put("AS2",(short)46);put("BF2",(short)46);put("B2",(short)47);
+
+        put("C3",(short)48);put("CS3",(short)49);put("DF3",(short)49);put("D3",(short)50);put("DS3",(short)51);put("EF3",(short)51);put("E3",(short)52);put("F3",(short)53);put("FS3",(short)54);put("GF3",(short)54);put("G3",(short)55);put("GS3",(short)56);put("AF3",(short)56);put("A3",(short)57);put("AS3",(short)58);put("BF3",(short)58);put("B3",(short)59);
+
+        put("C4",(short)60);put("CS4",(short)61);put("DF4",(short)61);put("D4",(short)62);put("DS4",(short)63);put("EF4",(short)63);put("E4",(short)64);put("F4",(short)65);put("FS4",(short)66);put("GF4",(short)66);put("G4",(short)67);put("GS4",(short)68);put("AF4",(short)68);put("A4",(short)69);put("AS4",(short)70);put("BF4",(short)70);put("B4",(short)71);
+
+        put("C5",(short)72);put("CS5",(short)73);put("DF5",(short)73);put("D5",(short)74);put("DS5",(short)75);put("EF5",(short)75);put("E5",(short)76);put("F5",(short)77);put("FS5",(short)78);put("GF5",(short)78);put("G5",(short)79);put("GS5",(short)80);put("AF5",(short)80);put("A5",(short)81);put("AS5",(short)82);put("BF5",(short)82);put("B5",(short)83);
+
+        put("C6",(short)84);put("CS6",(short)85);put("DF6",(short)85);put("D6",(short)86);put("DS6",(short)87);put("EF6",(short)87);put("E6",(short)88);put("F6",(short)89);put("FS6",(short)90);put("GF6",(short)90);put("G6",(short)91);put("GS6",(short)92);put("AF6",(short)92);put("A6",(short)93);put("AS6",(short)94);put("BF6",(short)94);put("B6",(short)95);
+
+        put("C7",(short)96);put("CS7",(short)97);put("DF7",(short)97);put("D7",(short)98);put("DS7",(short)99);put("EF7",(short)99);put("E7",(short)100);put("F7",(short)101);put("FS7",(short)102);put("GF7",(short)102);put("G7",(short)103);put("GS7",(short)104);put("AF7",(short)104);put("A7",(short)105);put("AS7",(short)106);put("BF7",(short)106);put("B7",(short)107);
+
+        put("C8",(short)108);
+    }};
+
+    public static int getNote(String note){
+        return absoluteNote.get(note).intValue();
+    }
+
 }
