@@ -3,11 +3,11 @@ package TypeOperation;
 
 import com.sun.istack.internal.NotNull;
 
-public class Visuallize {
+public class Visualize {
 
     @NotNull
     public static String formatHexString(String hex){
-        StringBuffer returnString=new StringBuffer("");
+        StringBuilder returnString=new StringBuilder("");
         int count=hex.length();
         int counter=1;
         while(count>0){

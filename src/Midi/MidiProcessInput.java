@@ -53,7 +53,7 @@ public class MidiProcessInput {
     }
     public void firstToneDown(){firstToneNote-=12;}
 
-    public void startStandardInput(){
+    public void startStandardInput()throws NullPointerException{
         char i;
         int note;
         while(true){
@@ -63,10 +63,9 @@ public class MidiProcessInput {
                 MidiOperation.playGlobal(note, 1);
             }
             catch (IOException e){e.printStackTrace();}
-            catch (MidiUnavailableException e){e.printStackTrace();}
-            catch (InvalidMidiDataException e){e.printStackTrace();}
-            catch (NullPointerException e){
-                continue;
+
+            catch (NoSuchMethodException e){
+                break;
             }
         }
     }

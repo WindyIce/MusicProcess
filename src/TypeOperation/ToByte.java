@@ -1,11 +1,11 @@
 package TypeOperation;
 
+import org.jetbrains.annotations.NotNull;
+
 public class ToByte {
 
+    @NotNull
     public static byte[] hexToBytes(String hexString){
-        if(hexString==null||hexString.equals("")){
-            return null;
-        }
         hexString=hexString.toUpperCase();
         int length=hexString.length()/2;
         char[] hexChars=hexString.toCharArray();

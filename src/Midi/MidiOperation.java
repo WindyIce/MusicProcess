@@ -11,7 +11,8 @@ public class MidiOperation {
     private int defaultTicks;  //tick - the time-stamp for the event, in MIDI ticks
 
 
-    public MidiOperation(int instrument)throws MidiUnavailableException,InvalidMidiDataException{
+    public MidiOperation(int instrument)throws MidiUnavailableException,
+            InvalidMidiDataException{
         sequencer = MidiSystem.getSequencer();
         sequencer.open();
         /**
@@ -27,8 +28,21 @@ public class MidiOperation {
         track.add(firstEvent);
     }
 
-    public MidiOperation(int instrument,int framesPerSec){
+    public MidiOperation(int instrument,float framesPerSec)throws MidiUnavailableException,
+            InvalidMidiDataException{
+        sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        /**
+         * The tempo-based timing type, for which the resolution is expressed in pulses (ticks) per quarter note.
+         * @see #Sequence(float, int)
+         */
+        sequence=new Sequence(framesPerSec,4);
 
+        track=sequence.createTrack();
+        ShortMessage firstMessage=new ShortMessage();
+        firstMessage.setMessage(192,1,instrument,0);
+        MidiEvent firstEvent=new MidiEvent(firstMessage,1);
+        track.add(firstEvent);
     }
 
     /*public void addNoteToTrack(int note)throws InvalidMidiDataException{
@@ -50,29 +64,9 @@ public class MidiOperation {
         track.add(noteOff);
     }
 
-    public static void playGlobal(int note,int instrument)throws MidiUnavailableException,
-            InvalidMidiDataException{
-        Sequencer sequencer = MidiSystem.getSequencer();
-        sequencer.open();
-        Sequence sequence=new Sequence(Sequence.PPQ,4);
-
-        Track track=sequence.createTrack();
-        ShortMessage firstMessage=new ShortMessage();
-        firstMessage.setMessage(192,1,instrument,0);
-        MidiEvent firstEvent=new MidiEvent(firstMessage,1);
-        track.add(firstEvent);
-
-        ShortMessage shortMessage=new ShortMessage();
-        shortMessage.setMessage(144, 1, note, 100);
-        MidiEvent noteOn=new MidiEvent(shortMessage,0);
-        track.add(noteOn);
-
-        ShortMessage shortMessage1=new ShortMessage();
-        shortMessage1.setMessage(128,1,note,100);
-        MidiEvent noteOff=new MidiEvent(shortMessage1,4);
-        track.add(noteOff);
-        sequencer.setSequence(sequence);
-        sequencer.start();
+    //need to replace the method by a higher efficient method with lower memory cost
+    public static void playGlobal(int note,int instrument)throws NoSuchMethodException{
+        throw new NoSuchMethodException();
     }
 
     public void savedSetting() throws InvalidMidiDataException{
@@ -81,6 +75,7 @@ public class MidiOperation {
 
     public void play(){
         sequencer.start();
+        sequencer.stop();
     }
 
 

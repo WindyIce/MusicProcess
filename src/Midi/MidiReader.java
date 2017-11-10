@@ -41,7 +41,7 @@ public class MidiReader {
         fileInputStream.close();
         fileOutputStream.close();
 
-        System.out.println("success");
+        //System.out.println("success");
     }
 
     private byte[] toByteArray()throws IOException{

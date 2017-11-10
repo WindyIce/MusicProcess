@@ -26,7 +26,7 @@ public class FromByte {
     }
 
     @NotNull
-    public static String toHex(byte b){
+    public static String toHexString(byte b){
         StringBuffer buffer=new StringBuffer();
         buffer.append(hexCode[(b>>>4)&0x0f]);
         buffer.append(hexCode[b&0x0f]);
@@ -34,10 +34,10 @@ public class FromByte {
     }
 
     @NotNull
-    public static String toHexArray(byte[] bytes){
+    public static String toHexStringArray(byte[] bytes){
         StringBuffer output=new StringBuffer("");
         for(byte a:bytes){
-            output.append(toHex(a));
+            output.append(toHexString(a));
 
         }
         return output.toString();

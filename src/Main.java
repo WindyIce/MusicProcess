@@ -1,11 +1,5 @@
 import Midi.*;
-import Player.BasicPlayer;
-import TypeOperation.FromByte;
-import TypeOperation.ToByte;
-import TypeOperation.Visuallize;
 
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.util.Random;
 
 public class Main {
@@ -33,12 +27,19 @@ public class Main {
         try {
             Random random=new Random();
             int nowTick=1;
-            while(true){
-                int note=random.nextInt(127);
-                double sleepTick=random.nextDouble()*3+1;
-                MidiOperation.playGlobal(note,random.nextInt(3)+1);
-                Thread.sleep((long)((int)60*sleepTick));
+            final int maximumNotes=1000;
+            MidiOperation midiOperation=new MidiOperation(1);
+            int counter=0;
+            while(++counter<maximumNotes){
+                int note=random.nextInt(40)+40;
+                int startTick=nowTick;
+                int endTick=nowTick+random.nextInt(4);
+                midiOperation.addNoteToTrack(note,startTick,endTick);
+                nowTick+=random.nextInt(3);
+
             }
+            midiOperation.savedSetting();
+            midiOperation.play();
         }
         catch (Exception e){
             e.printStackTrace();
