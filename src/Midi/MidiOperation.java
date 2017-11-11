@@ -75,7 +75,6 @@ public class MidiOperation {
 
     public void play(){
         sequencer.start();
-        sequencer.stop();
     }
 
 

@@ -9,9 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MidiProcessInput {
-    private final int baseNote=64;//0x3c
+    private static final int baseNote=64;//0x3c
     private int firstToneNote=0;
-    private final HashMap<String,Integer>toneMap  = new HashMap<String,Integer>(){{
+    private static final HashMap<String,Integer>toneMap  = new HashMap<String,Integer>(){{
         put("Db",-11);
         put("D",-10);
         put("Eb",-9);
@@ -26,7 +26,7 @@ public class MidiProcessInput {
         put("C",0);
         put("C#",1);
     }};
-    private final HashMap<Character, Integer>inputMap=new HashMap<Character, Integer>(){{
+    private static final HashMap<Character, Integer>inputMap=new HashMap<Character, Integer>(){{
         put('1',12);put('2',14);put('3',16);put('4',17);put('5',19);put('6',21);put('7',23);put('8',24);put('9',26);put('0',28);put('-',29);put('=',31);
         put('!',12);put('@',14);put('#',16);put('$',17);put('%',19);put('^',21);put('&',23);put('*',24);put('(',26);put(')',28);put('_',29);put('+',31);
         // note that \\ means 33     6up
@@ -39,6 +39,10 @@ public class MidiProcessInput {
         put('z',-24);put('x',-22);put('c',-20);put('v',-19);put('b',-17);put('n',-15);put('m',-13);put(',',-12);put('.',-10);put('/',-8);
         put('Z',-24);put('X',-22);put('C',-20);put('V',-19);put('B',-17);put('N',-15);put('M',-13);put('<',-12);put('>',-10);put('?',-8);
     }};
+
+    public static int getOffset(String tone){
+        return toneMap.get(tone);
+    }
 
     public MidiProcessInput(){
         firstToneNote=baseNote;
